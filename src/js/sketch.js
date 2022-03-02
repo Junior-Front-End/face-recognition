@@ -102,7 +102,7 @@ btn.addEventListener("click", async () => {
     // tick happens here (apply just when change, new detection)
     if (detections && detections.length > 0) { 
       for (i = 0; i < detections.length; i++) {
- 
+
         var alignedRect = detections[i].alignedRect;
         x = alignedRect._box._x;
         y = alignedRect._box._y;
