@@ -80,6 +80,8 @@ btn.addEventListener("click", async () => {
   // -------------------------------
   // (7) Repeat function 
   // -------------------------------
+  var boxHeight, boxWidth, x, y; 
+
   function updateMoment(err, detections) {
     if (err) return console.log(err); 
 
@@ -98,49 +100,50 @@ btn.addEventListener("click", async () => {
     ctx.drawImage(can2, 0, 0, width, height);
 
     // tick happens here (apply just when change, new detection)
-    if (detections && detections.length > 0) {
+    if (detections && detections.length > 0) { 
       for (i = 0; i < detections.length; i++) {
  
         var alignedRect = detections[i].alignedRect;
-        const x = alignedRect._box._x;
-        const y = alignedRect._box._y;
-        const boxWidth = alignedRect._box._width;
-        const boxHeight = alignedRect._box._height;
+        x = alignedRect._box._x;
+        y = alignedRect._box._y;
+        boxWidth = alignedRect._box._width;
+        boxHeight = alignedRect._box._height;
           
-        // (7-1) webcam on can1 (result can1 is a original size but more transparent space)
-        ctx1.drawImage(webcam, 
-          x-25, y-100, 
-          boxWidth-20, boxHeight+70, 
-          x-25, y-100, 
-          boxWidth-20, boxHeight+70
-        ); 
+      }   
+    }  
 
-        // (7-2) white to transparent
-        var ctx1data = ctx1.getImageData(0, 0, webcam_w, webcam_h)
-        var data1 = ctx1data.data
+    // (7-1) webcam on can1 (result can1 is a original size but more transparent space)
+    ctx1.drawImage(webcam, 
+      x-25, y-100, 
+      boxWidth-20, boxHeight+70, 
+      x-25, y-100, 
+      boxWidth-20, boxHeight+70
+    );  
 
-        for (j = 0; j < data1.length; j+=4) {
-          if (
-            data1[j] == 255 &&
-            data1[j+1] == 255 &&
-            data1[j+2] == 255 
-          ) { 
-            data1[j + 3] =  0 // alpha
-          }
-        }
+    // (7-2) white to transparent
+    var ctx1data = ctx1.getImageData(0, 0, webcam_w, webcam_h)
+    var data1 = ctx1data.data
 
-        ctx1.putImageData(ctx1data, 0, 0);
-
-
-        // (7-3) can1 on mother    
-        ctx.drawImage(can1, 
-          width-width_sm, height-height_sm, 
-          width_sm, height_sm
-        );
- 
-  
-      } 
+    for (j = 0; j < data1.length; j+=4) {
+      if (
+        data1[j] == 255 &&
+        data1[j+1] == 255 &&
+        data1[j+2] == 255 
+      ) { 
+        data1[j + 3] =  0 // alpha
+      }
     }
+
+    ctx1.putImageData(ctx1data, 0, 0);
+
+
+    // (7-3) can1 on mother    
+    ctx.drawImage(can1, 
+      width-width_sm, height-height_sm, 
+      width_sm, height_sm
+    );
+
+         
     
     // ----------------------
     // Repeat this function (for new moment)

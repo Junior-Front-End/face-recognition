@@ -3,9 +3,9 @@
 
 ## improvement
 
-* always show webcam, just change on detect
-* data combine screen, webcam then on mother
-* head and chest (body) detection
+* [x] always show webcam, just change on detect
+* [x] data combine screen, webcam then on mother
+* [ ] head and chest (body) detection
 
 ## preview
 
