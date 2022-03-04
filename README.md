@@ -1,5 +1,11 @@
-# ml5.js > faceApi
-1400.12 v1.1
+# ScreenShare & Face (v1.2)
+1400.12 
+ 
+ScreenShare with Instrauctor Face and Pose (no background)
+
+## this branch (v1.2)
+
+* [ ] change `ml5.faceAPI` to `ml5.posenet` 
 
 ## improvement
 
