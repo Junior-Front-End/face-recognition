@@ -18,8 +18,8 @@ btn.addEventListener("click", async () => {
   // -------------------------------
   // (2) get webcam 
   // -------------------------------
-  var webcam_w = 700
-  var webcam_h = 500
+  var webcam_w = 640
+  var webcam_h = 480
 
   const webcam_stream = await navigator.mediaDevices.getUserMedia({video: true}); 
   const webcam = document.createElement("video");
@@ -52,8 +52,8 @@ btn.addEventListener("click", async () => {
   can1.height = webcam_h
   var ctx1 = can1.getContext("2d")  
 
-  var width_sm = 280
-  var height_sm = 200
+  var width_sm = 320
+  var height_sm = 240
   
   // -------------------------------
   // (5) can2: screen  
@@ -67,20 +67,6 @@ btn.addEventListener("click", async () => {
   var top_sc = (height - sc_h)/2 
  
  
-  // -------------------------------
-  // (6) Define ML Model  
-  // -------------------------------
-  const faceapi = await ml5.faceApi(webcam, {
-    withLandmarks: true,
-    withDescriptors: false
-  });
-
-  faceapi.detect(updateMoment);
- 
-  // -------------------------------
-  // (7) Repeat function 
-  // -------------------------------
-  var boxHeight, boxWidth, x, y; 
 
   function updateMoment(err, detections) {
     if (err) return console.log(err); 
