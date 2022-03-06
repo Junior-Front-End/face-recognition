@@ -5,7 +5,7 @@ ScreenShare with Instrauctor Face and Pose (no background)
 
 ## this branch (v1.2)
 
-* [ ] change `ml5.faceAPI` to `body-pix` from tfjs 
+* [x] change `ml5.faceAPI` to `body-pix` from tfjs 
 
 ## improvement
 
