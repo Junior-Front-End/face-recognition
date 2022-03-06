@@ -25,14 +25,8 @@ can1.width = webcam_w
 can1.height = webcam_h
 var ctx1 = can1.getContext("2d")  
 
-var width_sm = 320
-var height_sm = 240
-
-// * screen    
-// var can2 = document.createElement("canvas")
-// can2.width = width
-// can2.height = height
-// var ctx2 = can2.getContext("2d") 
+var width_sm = 426
+var height_sm = 320
 
 var sc_h = Math.floor(( screen_h/screen_w) * width)
 var top_sc = (height - sc_h)/2 
@@ -56,6 +50,23 @@ btn.addEventListener("click", async () => {
  
   
   async function addWebcamEvent() { 
+
+    //
+    reqAniScreen();
+
+    function reqAniScreen() { 
+
+      //
+      requestAnimationFrame(reqAniScreen);
+      ctx.drawImage(screen, 0, top_sc, width, sc_h); 
+      
+      // (7-3) can1 on mother    
+      ctx.drawImage(can1, 
+        width-width_sm, height-height_sm, 
+        width_sm, height_sm
+      );  
+      
+    }
     
     // -------------------------------
     // (2) webcam 
@@ -109,9 +120,7 @@ btn.addEventListener("click", async () => {
           const maskBlurAmount = 0; // edge blur
           var options = [coloredPartImage, opacity, maskBlurAmount, flipHorizontal]; 
 
-          // draw screen on can
-          ctx.drawImage(screen, 0, top_sc, width, sc_h);  
-
+          //
           ctx1.fillStyle = "#000";
           ctx1.fillRect(0, 0, webcam_w, webcam_h)
 
@@ -135,11 +144,7 @@ btn.addEventListener("click", async () => {
           //
           ctx1.putImageData(ctx1data, 0, 0);
 
-          // (7-3) can1 on mother    
-          ctx.drawImage(can1, 
-            width-width_sm, height-height_sm, 
-            width_sm, height_sm
-          );  
+           
 
 
         }
