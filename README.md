@@ -1,13 +1,13 @@
-# ScreenShare & body-fix (v1.3)
+# ScreenShare & body-fix (v1.4)
 1400.12 
  
 ScreenShare with Instrauctor Face and Pose (no background)
 
-## this branch (v1.3)
+## this branch (v1.4)
 
-* [x] improve screen record speed
-* [ ] improve detection
+* [x] partition
 * [ ] Record, pause & Download
+* [ ] improve detection (ResNet)
 
 
 * [Github](https://github.com/tensorflow/tfjs-models/tree/master/body-pix)
@@ -28,11 +28,6 @@ multiplier: 0.75,
 quantBytes: 2
 }
 ```
-
-## improvement
-
-* [x] always show webcam, just change on detect
-* [x] data combine screen, webcam then on mother
-* [x] change `ml5.faceAPI` to `body-pix` from tfjs 
+ 
 
 
