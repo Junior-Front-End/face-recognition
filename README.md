@@ -6,7 +6,8 @@
 ## this branch (v1.6)
  
 * [x] Record, pause & Download
-* [ ] add audio
+* [x] add audio
+* [ ] fix delay after moments
 * [ ] beautiful ui
 
 

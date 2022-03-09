@@ -64,5 +64,6 @@ async function reqAnimation(webcam) {
       }
 
     }  
+    
         
 }
