@@ -1,16 +1,15 @@
 # ScreenShare & body-fix (v1.5)
-1400.12 
- 
-ScreenShare with Instrauctor Face and Pose (no background)
-
-## this branch (v1.5)
-
-* [x] partition
-* [ ] Record, pause & Download
-* [ ] improve detection (ResNet)
-
+1400.12 - ScreenShare with Instrauctor Face and Pose (no background)
 
 * [Github](https://github.com/tensorflow/tfjs-models/tree/master/body-pix)
+
+## this branch (v1.5)
+ 
+* [x] Record, pause & Download
+
+
+## exact detection (ResNet)
+
 
 ``` 
 {

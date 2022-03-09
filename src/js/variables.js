@@ -1,5 +1,7 @@
+// ===================== 
+// define variables
+// ===================== 
 
-// ====================================================== define variables
 var screen_w = 1920
 var screen_h = 1080;
 
@@ -25,12 +27,13 @@ can1.width = webcam_w
 can1.height = webcam_h
 var ctx1 = can1.getContext("2d")  
 
-
+// # webcam
 var width_sm = 426
 var height_sm = 320
 
-var sc_h = Math.floor(( screen_h/screen_w) * width)
+// # screen 
+var sc_h = Math.floor((screen_h/screen_w) * width)
 var top_sc = (height - sc_h)/2 
 
-//
+// # start screenshare
 var btn = document.querySelector("#btn");
