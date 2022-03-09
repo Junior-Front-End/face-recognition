@@ -1,9 +1,9 @@
 btn.addEventListener("click", async () => {
 
   //
-  const screen_stream = await navigator.mediaDevices.getDisplayMedia({
-    video: true
-  });
+  const screen_stream = await navigator.mediaDevices.getDisplayMedia();
+
+  //
   const screen = document.createElement("video");
   screen.setAttribute("style", "display:none;"); 
   document.body.appendChild(screen); 
@@ -52,6 +52,9 @@ btn.addEventListener("click", async () => {
     const webcam_video = new MediaStream([...webcam_stream.getVideoTracks()])
     const webcam_audio = new MediaStream([...webcam_stream.getAudioTracks()])
     
+    // 
+
+  
     //
     const webcam = document.createElement("video");
     webcam.width = webcam_w
@@ -75,7 +78,7 @@ btn.addEventListener("click", async () => {
     var canvasStream = canvas.captureStream(30); // fps
         
     var combinedStream = new MediaStream([
-      // ...AudioStream.getAudioTracks(), 
+      ...webcam_audio.getAudioTracks(), 
       ...canvasStream.getVideoTracks()
     ]);
 
