@@ -25,6 +25,7 @@ can1.width = webcam_w
 can1.height = webcam_h
 var ctx1 = can1.getContext("2d")  
 
+
 var width_sm = 426
 var height_sm = 320
 
