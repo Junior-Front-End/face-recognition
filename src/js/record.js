@@ -1,6 +1,14 @@
 
 //
-function initRecorderWithCanvas(combinedStream) {
+function initRecorderWithCanvas(canvas, webcam_audio) {
+    
+    //
+    var canvasStream = canvas.captureStream(30); // fps
+        
+    var combinedStream = new MediaStream([
+      ...webcam_audio.getAudioTracks(), 
+      ...canvasStream.getVideoTracks()
+    ]);
 
     //
     var chunks = [];
@@ -27,7 +35,7 @@ function initRecorderWithCanvas(combinedStream) {
         //
         chunks = []
         
-    })
+    });
 
 
     //

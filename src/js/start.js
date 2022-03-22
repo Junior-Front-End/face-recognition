@@ -20,10 +20,8 @@ btn.addEventListener("click", async () => {
     // (1) Screen 
     // ------------------------------- 
     
-    //
     screenAnimation();
 
-    //
     function screenAnimation() { 
       
       requestAnimationFrame(screenAnimation);
@@ -43,47 +41,39 @@ btn.addEventListener("click", async () => {
     // (2) Webcam 
     // ------------------------------- 
 
-    const webcam_stream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      audio: true
-    }); 
-    
-    //
-    const webcam_video = new MediaStream([...webcam_stream.getVideoTracks()])
-    const webcam_audio = new MediaStream([...webcam_stream.getAudioTracks()])
-  
-    //
-    const webcam = document.createElement("video");
-    webcam.width = webcam_w
-    webcam.height = webcam_h
-    webcam.setAttribute("style", "display: none;"); 
-    document.body.appendChild(webcam); 
+    // webcam_()
 
-    //
-    webcam.srcObject = webcam_video;
-    
-    webcam.addEventListener("loadeddata", () => {
-      reqAnimation(webcam);
-    });
-
-    webcam.play(); 
-
-    // -------------------------------
-    // (3) Record 
-    // ------------------------------- 
-    
-    var canvasStream = canvas.captureStream(30); // fps
+    async function webcam_() {
         
-    var combinedStream = new MediaStream([
-      ...webcam_audio.getAudioTracks(), 
-      ...canvasStream.getVideoTracks()
-    ]);
-
-    //
-    initRecorderWithCanvas(combinedStream);
+      const webcam_stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        // audio: true
+      }); 
+      
+      const webcam_video = new MediaStream([...webcam_stream.getVideoTracks()])
+      const webcam_audio = new MediaStream([...webcam_stream.getAudioTracks()])
     
+      const webcam = document.createElement("video");
+      webcam.width = webcam_w
+      webcam.height = webcam_h
+      webcam.setAttribute("style", "display: none;"); 
+      document.body.appendChild(webcam); 
 
-    
+      webcam.srcObject = webcam_video;
+      
+      webcam.addEventListener("loadeddata", () => {
+        // reqAnimation(webcam);
+      });
+
+      webcam.play(); 
+
+      // -------------------------------
+      // (3) Record 
+      // -------------------------------  
+      // initRecorderWithCanvas(canvas, webcam_audio);
+      
+    }
+
   }
 
 
